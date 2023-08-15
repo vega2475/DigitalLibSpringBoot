@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>New</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/people}" th:object="${person}">
+    <label for="full_name">Input Full Name</label>
+    <input type="text" th:field="*{fullName}" id="full_name">
+    <div style="color: red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">
+        Full Name Error
+    </div>
+    <br/>
+    <label for="yearOfTheBirth">Input year when u birth</label>
+    <input type="text" th:field="*{yearOfTheBirth}" id="yearOfTheBirth">
+    <div style="color: red" th:if="${#fields.hasErrors('yearOfTheBirth')}" th:errors="*{yearOfTheBirth}">
+        Year of the birth
+    </div>
+    <br>
+    <label for="email">Input your email</label>
+    <input type="text" th:field="*{email}" id="email">
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+        Email
+    </div>
+    <input type="submit" value="Add new reader">
+</form>
+
+</body>
+</html>
